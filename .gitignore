@@ -36,7 +36,8 @@
 .ssh/id_boot2docker*
 .ssh/yelp
 
-
+# bins
+bin/yelp-shootie
 
 .subversion
 .vim/.netrwhist
