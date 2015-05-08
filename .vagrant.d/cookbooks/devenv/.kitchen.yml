@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+  forward_agent: true
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu/trusty64
+
+suites:
+  - name: default
+    run_list:
+      - recipe[devenv]
+    attributes:
+      devenv:
+        packages:
+          - 'git'
+          - 'silversearcher-ag'
+          - 'vim-nox'
+        users:
+          vagrant:
+            repo: 'git@github.com:jcnnghm/dotfiles.git'
+            shell: 'zsh'

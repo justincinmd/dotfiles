@@ -1,0 +1,18 @@
+[user]
+name = Justin Cunningham
+email = justin@bulletprooftiger.com
+
+[color]
+ui = true
+status = auto
+
+[color "status"]
+added = green
+changed = blue
+untracked = magenta
+deleted = red
+
+[github]
+user = jcnnghm
+[push]
+default = matching

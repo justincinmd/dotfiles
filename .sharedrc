@@ -1,0 +1,48 @@
+# Editor for git and othes
+export GIT_EDITOR=vim
+export EDITOR=vim
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+
+# Load rvm.sh from profile.d if it exists
+if [ -f /etc/profile.d/rvm.sh ]; then
+    . /etc/profile.d/rvm.sh
+fi
+
+# Load ssh keys
+if [[ $(uname) == 'Darwin' ]]; then
+    ssh-add -A
+    # add additional keys space delimited after id_rsa
+    for f in id_rsa
+    do
+        if [ -f ~/.ssh/$f ]; then
+            # Add files if it wasn't added by the keychain
+            command -v ssh-add && ! ssh-add -l | grep .ssh/$f && ssh-add ~/.ssh/$f
+        fi
+    done
+fi
+
+# Let ctrl-s work
+stty stop undef
+stty start undef
+command -v setopt && setopt noflowcontrol
+
+# Disable XON and XOFF which enables CTRL+S to work in VIM's CommandT - may be
+# able to drop the one above, it was added later
+stty ixany
+stty ixoff -ixon
+
+# activate rbenv if it exists
+if [ -d ~/.rbenv ]; then
+  echo 'Activating rbenv from ~/.sharedrc'
+  export PATH=~/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+fi

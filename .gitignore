@@ -1,0 +1,76 @@
+# Configuration
+.*-history
+.*_history
+.CFUserTextEncoding
+.DS_Store
+.Trash
+.account
+.bash_profile.bak
+.cups
+.dropbox*
+.gem
+.lesshst
+.m2
+.rnd
+.rvm
+.sqlworkbench
+.Rapp.history
+.adobe/
+.berkshelf/
+.vagrant/
+.Xauthority
+.octave*
+.fonts/
+.fontconfig/
+.subversion_IDEA/
+.tox/
+.docker/
+.fontconfig-le64d8.cache-3
+
+# ssh
+.ssh/authorized_keys
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/known_hosts
+.ssh/github_rsa*
+.ssh/id_boot2docker*
+.ssh/yelp
+
+
+
+.subversion
+.vim/.netrwhist
+.viminfo
+.zcompdump*
+.zsh_history
+.zsh/local.rc
+.*.swp
+Desktop
+Documents
+Downloads
+Library
+Movies
+Music
+Pictures
+Public
+RubymineProjects
+docs
+downloader
+drivers
+hackathon
+ruby
+yelp-ruby
+scratch
+tmp
+
+# serverauth
+.serverauth*
+
+# OS X Stuff
+Applications/
+Books/
+Dropbox/
+Google Drive/
+Projects/
+VirtualBox VMs/
+Work/

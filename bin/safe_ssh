@@ -1,0 +1,26 @@
+#!/bin/bash
+host=`echo $1 | cut -d"@" -f2`
+echo $host
+
+changedColor=false
+
+function changeColor {
+	match=`echo $host | grep $1 | wc -l`
+	if [ $match -gt 0 ]
+	then
+			echo "Chaning Color: $2 Shell Detected"
+			tty=`osascript -e "tell application \"Terminal\" to return tty of selected tab of window 1"`
+	    osascript ~/bin/change_terminal_color.scpt "$3" "$tty"
+			changedColor=true
+	fi
+}
+
+changeColor "_production" "Production SSH" "Red Sands"
+changeColor "compute-1.amazonaws.com" "Amazon AWS SSH" "Ocean"
+
+/usr/bin/ssh $1
+
+if $changedColor ; then
+	echo 'Revering Color'
+	osascript ~/bin/change_terminal_color.scpt "Homebrew" $tty 2>/dev/null
+fi

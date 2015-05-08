@@ -1,0 +1,26 @@
+Easy Web Server:
+
+python -m SimpleHTTPServer 8001
+
+Scaling EMR:
+
+echo "f" | sudo tee /sys/class/net/eth0/queues/rx-0/rps_cpus
+
+Cleaning up GIT:
+
+Remove merged branches from origin:
+
+git branch --merged | grep -v "\*" | xargs -n 1 | sed 's/^/:/' | xargs -n 1 git push origin
+
+Remove merged branches locally:
+
+git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+
+Phone:
+
+US: "9-1-area code + phone number"
+International: "9-011-country code-phone number"
+
+Find and replace:
+
+ack --python -l 'batch\.count_biz_views' | xargs perl -pi -E 's/batch\.count_biz_views/batch.business_stats.count_biz_views/g'

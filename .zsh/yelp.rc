@@ -1,0 +1,31 @@
+export PATH=$PATH:/nail/scripts:/nail/workflow:/nail/sys/bin/
+
+# Testify disablement outside of the sandbox
+testify() {
+  if [ "$YELP_IN_SANDBOX" ]; then
+    command testify "$@"
+  else
+    echo "You're not in a sandbox, dummy!"
+    return 1
+  fi
+}
+
+
+# COMPLETION SETTINGS
+# add custom completion scripts
+fpath=(~/completions $fpath)
+
+# compsys initialization
+autoload -U compinit
+compinit
+
+
+# MYSQL ALIAS
+alias lb_mysql='/usr/lib/jvm/java-7-oracle-1.7.0.45/bin/java -jar ../tools/liquibase.jar --classpath=../tools/mysql-connector-java-5.1.29-bin.jar --driver=com.mysql.jdbc.Driver --url="jdbc:mysql://$MYSQL_HOST:$MYSQL_RW_PORT/yelp_dw" --changeLogFile=master.xml --username=$MYSQL_USERNAME --password=PROMPT'
+
+# REDSHIFT ALIAS
+alias lb_redshift='/usr/lib/jvm/java-7-oracle-1.7.0.45/bin/java -jar ../tools/liquibase.jar --classpath="../tools/postgresql-9.3-1101.jdbc41.jar:../tools/liquibase-redshift-1.0-SNAPSHOT.jar" --driver=org.postgresql.Driver --databaseClass=liquibase.ext.redshift.database.RedshiftDatabase --url="jdbc:postgresql://$URL?tcpKeepAlive=true&ssl=true" --changeLogFile=master.xml --username=$REDSHIFT_USERNAME --password=PROMPT'
+
+# Read the IP address from docker
+alias docker_ip_master="docker ps | grep dbmaster | awk '{print \$1}' | xargs docker inspect | grep IPAddress | awk -F'\"' '{print \$4}'"
+alias docker_ip_local="docker ps | grep dblocal | awk '{print \$1}' | xargs docker inspect | grep IPAddress | awk -F'\"' '{print \$4}'"
