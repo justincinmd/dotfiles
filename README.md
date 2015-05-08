@@ -77,3 +77,31 @@ To add a new pathogen submodule:
 
     git submodule add git://github.com/scrooloose/nerdcommenter.git .vim/bundle/nerdcommenter
 
+### Moving to Public dotfiles
+
+Move the git config to the prive repo, and pull it.
+
+Remove all the submodule directories:
+
+    rm -rf .vim/bundle/python-mode
+    rm -rf .vim/bundle/vim-fugitive
+    rm -rf .vim/bundle/nerdcommenter
+    rm -rf .vim/bundle/taboo
+    rm -rf .vim/bundle/vim-colors-solarized
+    rm -rf .vim/bundle/vim-airline
+    rm -rf .vim/bundle/vim-sleuth
+    rm -rf .vim/bundle/vim-rails
+    rm -rf .vim/bundle/vim-bundler
+    rm -rf .vim/bundle/vim-sessions
+    rm -rf .vim/bundle/vim-misc
+    rm -rf .oh-my-zsh
+    rm -rf .vim/bundle/vim-ruby
+
+Then:
+
+    git rm -rf .git/
+    git init
+    git remote add origin git@github.com:jcnnghm/dotfiles.git
+    git fetch --all
+    git reset --hard origin/master
+    git submodule update --init
