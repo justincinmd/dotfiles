@@ -75,3 +75,12 @@ Google Drive/
 Projects/
 VirtualBox VMs/
 Work/
+
+# Chef stuff
+/.bash_logout
+/.bashrc.bak
+/.cache/
+/.profile
+/chef-getting-started.txt
+/chef-solo/
+/install.sh
