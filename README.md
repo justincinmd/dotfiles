@@ -99,9 +99,11 @@ Remove all the submodule directories:
 
 Then:
 
-    git rm -rf .git/
+    rm -rf .git/
     git init
     git remote add origin git@github.com:jcnnghm/dotfiles.git
     git fetch --all
     git reset --hard origin/master
     git submodule update --init
+    
+    ./configure.sh
