@@ -105,5 +105,6 @@ Then:
     git fetch --all
     git reset --hard origin/master
     git submodule update --init
+    git branch --set-upstream-to=origin/master master
     
     ./configure.sh
