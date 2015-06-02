@@ -25,6 +25,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'rking/ag.vim'
 
 call vundle#end()
 
