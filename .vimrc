@@ -51,6 +51,10 @@ colorscheme solarized
 " Comma-delimited list
 let g:pymode_lint_ignore='E501'
 
+" Pymode
+" Disable rope - see https://github.com/klen/python-mode/issues/465
+let g:pymode_rope=0
+
 " Taboo
 let g:taboo_tab_format=' %w %f%m '
 let g:taboo_renamed_tab_format=' %w [%f]%m '
