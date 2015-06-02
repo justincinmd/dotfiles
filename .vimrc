@@ -15,7 +15,16 @@ Plugin 'gmarik/Vundle.vim'
 " Other plugins
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
-
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'gcmt/taboo.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
+Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()
 
