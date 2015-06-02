@@ -2,12 +2,22 @@
 let g:CommandTMaxFiles=50000
 
 
-" Pathogen load
+" Vundle load
 filetype on " Fixes a non-zero exit status if filetype is already off
 filetype off
 
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Other plugins
+Plugin 'klen/python-mode'
+Plugin 'tpope/vim-fugitive'
+
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
