@@ -73,9 +73,25 @@ First, change the font to "Inconsolata for Powerline Medium", which should be bu
 
 ### Vim
 
-To add a new pathogen submodule:
+To add a new vim plugin, add a plugin line to `.vimrc`.  For example, to add
+the ack plugin at https://github.com/mileszs/ack.vim:
 
-    git submodule add git://github.com/scrooloose/nerdcommenter.git .vim/bundle/nerdcommenter
+    Plugin 'mileszs/ack.vim'
+
+See `https://github.com/gmarik/Vundle.vim` for more details.  After adding the
+plugin, install it by running:
+
+    vim +PluginInstall +qall
+
+This can also be accomplished using:
+
+    ./configure.sh
+
+### Submodule
+
+To add a new submodule:
+
+    git submodule add git://github.com/some/module.git .some/module
 
 ### Moving to Public dotfiles
 
@@ -99,9 +115,12 @@ Remove all the submodule directories:
 
 Then:
 
-    git rm -rf .git/
+    rm -rf .git/
     git init
     git remote add origin git@github.com:jcnnghm/dotfiles.git
     git fetch --all
     git reset --hard origin/master
     git submodule update --init
+    git branch --set-upstream-to=origin/master master
+    
+    ./configure.sh
