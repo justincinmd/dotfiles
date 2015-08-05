@@ -139,3 +139,6 @@ endfun
 autocmd FileType c,cpp,java,php,ruby,yaml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre Vagrantfile :call <SID>StripTrailingWhitespaces()
 :nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<CR>
+
+" Turn On Spellcheck
+setlocal spell
