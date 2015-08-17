@@ -46,3 +46,25 @@ if [ -d ~/.rbenv ]; then
   export PATH=~/.rbenv/bin:$PATH
   eval "$(rbenv init -)"
 fi
+
+
+# Shares the ssh-auth-socket, which is useful for accessing the agent inside
+# of screens or when using mosh
+SOCK=$HOME/.ssh-auth-sock-$USER.sock
+
+function share-ssh-auth-socket() {
+  if [ "$SSH_AUTH_SOCK" != "$SOCK" ]; then
+    if ssh-add -l > /dev/null 2>&1; then
+      echo "Shared SSH Auth Socket at $SOCK"
+      /bin/ln -sf $SSH_AUTH_SOCK $SOCK
+    fi
+  fi
+}
+
+if [ ! -z "$SSH_AUTH_SOCK" ]; then
+  # There is a socket
+  share-ssh-auth-socket
+else
+  # There is not a socket
+  export SSH_AUTH_SOCK=$SOCK
+fi
