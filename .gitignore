@@ -26,6 +26,7 @@
 .tox/
 .docker/
 .fontconfig-le64d8.cache-3
+.bundler/*
 
 # ssh
 .ssh/authorized_keys
@@ -59,10 +60,38 @@ docs
 downloader
 drivers
 hackathon
+pg
 ruby
 yelp-ruby
 scratch
+
+# tmp
 tmp
+.cookiecutters
+.ipython
+.htoprc
+.local/
+.npm/
+.pgconf-justinc/
+.pip/
+.pre-commit/
+.puppet-what-would-happen/
+.pylintrc
+.rbenv/
+.rbtools-cookies
+.rdebug_hist
+.ropeproject/
+.s3cfg
+.scribereader_cache/
+.set_s3_creds
+.ssh-auth-sock-justinc.sock
+.ssh/README
+.vim/sessions/
+.viminfo.tmp
+.znc/users/
+.znc/znc.pem
+.zsh_history*
+pbinit
 
 # serverauth
 .serverauth*
@@ -87,3 +116,9 @@ Work/
 
 # Screen socket
 .agent-sshscreen-justinc.sock
+
+# secrets
+db_passwords.yaml.gpg
+.aws/*
+.boto
+.gnupg
