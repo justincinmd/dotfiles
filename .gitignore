@@ -84,3 +84,6 @@ Work/
 /chef-getting-started.txt
 /chef-solo/
 /install.sh
+
+# Screen socket
+.agent-sshscreen-justinc.sock
