@@ -61,10 +61,14 @@ function share-ssh-auth-socket() {
   fi
 }
 
+function use-shared-ssh-auth-socket() {
+  export SSH_AUTH_SOCK=$SOCK
+}
+
 if [ ! -z "$SSH_AUTH_SOCK" ]; then
   # There is a socket
   share-ssh-auth-socket
 else
   # There is not a socket
-  export SSH_AUTH_SOCK=$SOCK
+  use-shared-ssh-auth-socket
 fi
