@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+require 'pathname'
+begin
+  require 'highline/import'
+rescue LoadError
+  puts "Install highline gem to use bump_minor_version (e.g. gem install highline)"
+  exit(1)
+end
+
+raise "Must be on master" unless `git symbolic-ref --short -q HEAD`.strip == 'master'
+raise "Uncommitted Changes - Should be run on clean branch." unless system("git diff --exit-code")
+
+project = Pathname.pwd.split[1]
+puts "Bumping minor version for #{project}"
+
+init_path = Pathname.new(project).join('__init__.py')
+init = init_path.read
+# https://regex101.com/r/eQ4xU2/1
+version = /__version__\s*=\s*['"](.+)['"]/.match(init)[1]
+split_version = version.split('.')
+split_version[-1] = split_version[-1].to_i + 1
+new_version = split_version.join('.')
+
+puts "Current version is #{version}"
+puts "New version would be #{new_version}"
+
+exit(1) unless agree('Do you want to bump the version? (yes or no)')
+
+`replace "#{version}" "#{new_version}" -- #{init_path}`
+raise "No version bump" if system("git diff --exit-code")
+
+exit(1) unless agree('Do you want to commit and push the change? (yes or no)')
+
+system("git commit -a -m 'Bumped to v#{new_version}'")
+system("git tag v#{new_version} HEAD && git push origin --tags && git push")
+
