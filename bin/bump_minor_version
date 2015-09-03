@@ -3,7 +3,7 @@ require 'pathname'
 begin
   require 'highline/import'
 rescue LoadError
-  puts "Install highline gem to use bump_minor_version (e.g. gem install highline)"
+  puts "Install highline gem to use bump_minor_version (e.g. gem install --user-install highline)"
   exit(1)
 end
 
@@ -32,5 +32,5 @@ raise "No version bump" if system("git diff --exit-code")
 exit(1) unless agree('Do you want to commit and push the change? (yes or no)')
 
 system("git commit -a -m 'Bumped to v#{new_version}'")
-system("git tag v#{new_version} HEAD && git push origin --tags && git push")
+system("git tag v#{new_version} HEAD && git push origin --tags && git push origin master")
 
