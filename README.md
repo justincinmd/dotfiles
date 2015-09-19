@@ -4,7 +4,7 @@ dotfiles
 ## Standard Setup
 
     cd ~
-    git init 
+    git init
     git remote add origin git@github.com:jcnnghm/dotfiles.git
     git pull
     git submodule update --init
@@ -28,21 +28,25 @@ On the Mac, import the solarized file.  It's `Solarized Dark.terminal` in `~`.
 
 To use command-t, it must be compiled.  It may be necessary to install vim using system ruby as well, if rvm is used.
 
-Mac specific precursor.  Command-t **must** be compiled with the same ruby that VIM is linked against, so it's best to 
+Mac specific precursor.  Command-t **must** be compiled with the same ruby that VIM is linked against, so it's best to
 switch to the system ruby, then install vim and compile command-t:
 
     rvm use system
     brew install macvim --override-system-vim
     brew linkapps
-    
-A `+ruby` should be visble in `vim --version`, or in the alternative, `:ruby 1` should run without error in vim.  
+
+A `+ruby` should be visble in `vim --version`, or in the alternative, `:ruby 1` should run without error in vim.
 Compile command-t:
 
     cd ~/.vim/ruby/command-t/
-    ruby extconf.rb 
+    ruby extconf.rb
     make clean
     make
-    
+
+On Ubuntu, install ruby development headers:
+
+    apt-get install ruby-dev
+
 ### Vim Install
 
 If `vim` wasn't compiled with `+ruby`, it may be ncessary to compile it from scratch.  To do that:
@@ -54,7 +58,7 @@ If `vim` wasn't compiled with `+ruby`, it may be ncessary to compile it from scr
     ./configure --prefix=~/bin/vim/ --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-cscope
     make
     make install
-    
+
 `~/bin/vim/bin` is on the path, but it's worth running `which vim` to make sure you're picking it up.
 
 ### iTerm
@@ -63,12 +67,12 @@ From `iTerm > Preferences > General`, change to load preferences from a custom f
 
 ### Gnome Terminal
 
-First, change the font to "Inconsolata for Powerline Medium", which should be built in.  We also need to change to solarized dark.  Easiest way to do this is to run:
+First, change the font to "Inconsolata for Powerline Medium", which may be built in.  If it's not built in, the font is available in `~/tools/fonts`.  We also need to change to solarized dark.  Easiest way to do this is to run:
 
     git clone https://github.com/sigurdga/gnome-terminal-colors-solarized.git
     cd gnome-terminal-colors-solarized
     ./set_dark.sh
-    
+
 ## Making Changes
 
 ### Vim
@@ -86,6 +90,10 @@ plugin, install it by running:
 This can also be accomplished using:
 
     ./configure.sh
+
+When setting up Ubuntu, `vim-nox` can be used:
+
+    apt-get install vim-nox
 
 ### Submodule
 
@@ -122,5 +130,5 @@ Then:
     git reset --hard origin/master
     git submodule update --init
     git branch --set-upstream-to=origin/master master
-    
+
     ./configure.sh
