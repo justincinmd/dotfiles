@@ -122,3 +122,21 @@ db_passwords.yaml.gpg
 .aws/*
 .boto
 .gnupg
+
+# Ubuntu
+.ICEauthority
+.bashrc.ubuntu_default
+.compiz
+.config
+.dbus
+.dmrc
+.gconf
+.gnome
+.mozilla
+.nv
+.nvidia-settings-rc
+.pki
+.sudo_as_admin_successful
+.xsession-errors
+.xsession-errors.old
+examples.desktop
