@@ -23,7 +23,8 @@ alias docker-compose-force-up='docker-compose kill && docker-compose rm --force 
 
 # copy-user
 # Usage:  copy-deploy-user SOME_USER
-copy-deploy-user () { lpass show Users | grep "$@" | awk "{ print \$2 }" | pbcopy }
+# This function doesn't work on bash, so disabling for now
+# copy-deploy-user () { lpass show Users | grep "$@" | awk "{ print \$2 }" | pbcopy };
 
 # git-remove-merged-branches
 alias git-remove-merged-branches='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d'
