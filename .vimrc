@@ -144,5 +144,5 @@ autocmd BufWritePre Vagrantfile :call <SID>StripTrailingWhitespaces()
 setlocal spell
 
 " Disable some command-t files
-set wildignore+=.pyc
+set wildignore+=*.pyc
 set wildignore+=virtualenv_run

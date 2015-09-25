@@ -86,6 +86,8 @@ tmp
 .set_s3_creds
 .ssh-auth-sock-justinc.sock
 .ssh/README
+.sudo_as_admin_successful
+.terraform.d/
 .vim/sessions/
 .viminfo.tmp
 .znc/users/
