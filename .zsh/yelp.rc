@@ -29,3 +29,5 @@ alias lb_redshift='/usr/lib/jvm/java-7-oracle-1.7.0.45/bin/java -jar ../tools/li
 # Read the IP address from docker
 alias docker_ip_master="docker ps | grep dbmaster | awk '{print \$1}' | xargs docker inspect | grep IPAddress | awk -F'\"' '{print \$4}'"
 alias docker_ip_local="docker ps | grep dblocal | awk '{print \$1}' | xargs docker inspect | grep IPAddress | awk -F'\"' '{print \$4}'"
+
+alias lb_mysql_rh='/usr/lib/jvm/java-7-oracle-1.7.0.45/bin/java -jar tools/liquibase.jar --classpath=tools/mysql-connector-java-5.1.29-bin.jar --driver=com.mysql.jdbc.Driver --url="jdbc:mysql://$MYSQL_HOST:$MYSQL_RW_PORT/yelp_replhandler" --changeLogFile=master.xml --username=$USERNAME --password=PROMPT'
