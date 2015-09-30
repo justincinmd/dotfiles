@@ -2,12 +2,32 @@
 let g:CommandTMaxFiles=50000
 
 
-" Pathogen load
+" Vundle load
 filetype on " Fixes a non-zero exit status if filetype is already off
 filetype off
 
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Other plugins
+Plugin 'klen/python-mode'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'gcmt/taboo.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'rking/ag.vim'
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
@@ -50,6 +70,10 @@ colorscheme solarized
 " Pymode
 " Comma-delimited list
 let g:pymode_lint_ignore='E501'
+
+" Pymode
+" Disable rope - see https://github.com/klen/python-mode/issues/465
+let g:pymode_rope=0
 
 " Taboo
 let g:taboo_tab_format=' %w %f%m '
@@ -112,5 +136,13 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,yaml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre Vagrantfile :call <SID>StripTrailingWhitespaces()
+:nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<CR>
+
+" Turn On Spellcheck
+setlocal spell
+
+" Disable some command-t files
+set wildignore+=*.pyc
+set wildignore+=virtualenv_run
