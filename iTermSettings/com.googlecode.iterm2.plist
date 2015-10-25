@@ -263,6 +263,8 @@
 	<false/>
 	<key>HideActivityIndicator</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
@@ -301,14 +303,29 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>148 370 201 309 0 0 1920 1178 </string>
+	<key>NSTableView Columns KeyBingingTable</key>
+	<array>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATCG
+		</data>
+		<string>198</string>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATGG
+		</data>
+		<string>302</string>
+	</array>
+	<key>NSTableView Hidden Columns KeyBingingTable</key>
+	<array/>
+	<key>NSTableView Sort Ordering KeyBingingTable</key>
+	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>-1335 378 924 485 -1920 0 1920 1200 </string>
+	<string>779 651 924 485 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>390 392 585 401 0 0 1920 1178 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>709 159 893 716 0 0 1920 1178 </string>
+	<string>0 56 1914 1121 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>65 638 570 401 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1934,7 +1951,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/justinc/iTermSettings</string>
+	<string>/Users/justin/iTermSettings</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1954,7 +1971,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-05-15T16:46:33Z</date>
+	<date>2015-06-11T15:43:16Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -2000,6 +2017,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>1.0.0.20130622</string>
+	<string>2.0.0.20150412</string>
 </dict>
 </plist>

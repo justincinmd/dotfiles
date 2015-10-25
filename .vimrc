@@ -26,6 +26,7 @@ Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'rking/ag.vim'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
