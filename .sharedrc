@@ -72,3 +72,7 @@ else
   # There is not a socket
   use-shared-ssh-auth-socket
 fi
+
+# Setup go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
