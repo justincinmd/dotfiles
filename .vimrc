@@ -147,3 +147,6 @@ setlocal spell
 " Disable some command-t files
 set wildignore+=*.pyc
 set wildignore+=virtualenv_run
+
+" Go setup
+let g:go_fmt_command = "goimports"
