@@ -24,7 +24,10 @@ Vagrant.configure(2) do |config|
 
     chef.json = {
       devenv: {
-        packages: ['git', 'silversearcher-ag', 'vim-nox', 'ack-grep', 'ruby1.9.1-dev', 'htop', 'tree'],
+        packages: [
+          'git', 'silversearcher-ag', 'vim-nox', 'ack-grep', 'ruby1.9.1-dev',
+          'htop', 'tree', 'mosh'
+        ],
         users: {
           vagrant: {
             repo: 'git@github.com:jcnnghm/dotfiles.git',
