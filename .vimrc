@@ -66,7 +66,9 @@ set term=screen-256color
 
 syntax enable
 set background=dark
-colorscheme solarized
+if exists(":SolarizedOptions")
+  colorscheme solarized
+endif
 
 " Pymode
 " Comma-delimited list
