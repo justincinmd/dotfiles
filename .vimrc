@@ -100,6 +100,15 @@ autocmd BufNewFile,BufRead ~/pg/* call YelpSettings()
 autocmd BufNewFile,BufRead Makefile setlocal noexpandtab
 autocmd FileType make setlocal noexpandtab
 
+" Go Tabs
+function GoTabSettings()
+    setlocal noexpandtab
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal softtabstop=2
+endfunction
+autocmd BufNewFile,BufRead *.go call GoTabSettings()
+
 
 " Importly
 function! Importly()
