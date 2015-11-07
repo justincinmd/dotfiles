@@ -66,8 +66,8 @@ set term=screen-256color
 
 syntax enable
 set background=dark
-if exists(":SolarizedOptions")
-  colorscheme solarized
+if isdirectory(glob("~/.vim/bundle/vim-colors-solarized"))
+    colorscheme solarized
 endif
 
 " Pymode
