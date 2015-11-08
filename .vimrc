@@ -27,6 +27,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
@@ -90,7 +91,7 @@ set tabstop=4
 set softtabstop=0
 
 " Yelp
-function YelpSettings()
+function! YelpSettings()
     setlocal expandtab      " don't turn them into space
     setlocal shiftwidth=4   " auto-indent width
     setlocal tabstop=4      " display width of a physical tab character
@@ -103,7 +104,7 @@ autocmd BufNewFile,BufRead Makefile setlocal noexpandtab
 autocmd FileType make setlocal noexpandtab
 
 " Go Tabs
-function GoTabSettings()
+function! GoTabSettings()
     setlocal noexpandtab
     setlocal shiftwidth=2
     setlocal tabstop=2
@@ -161,3 +162,8 @@ set wildignore+=virtualenv_run
 
 " Go setup
 let g:go_fmt_command = "goimports"
+autocmd BufWritePost *.go :GoMetaLinter
+au FileType go nmap <leader>g <Plug>(go-test)
+
+" Show line numbers by default
+:set number
