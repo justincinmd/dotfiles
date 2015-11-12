@@ -49,17 +49,19 @@ On Ubuntu, install ruby development headers:
 
 ### Vim Install
 
-If `vim` wasn't compiled with `+ruby`, it may be ncessary to compile it from scratch.  To do that:
+If `vim` wasn't compiled with `+ruby` or `+lua`, it may be ncessary to compile it from scratch.  To do that:
 
     cd ~/
-    hg clone https://code.google.com/p/vim/
+    git clone git@github.com:vim/vim.git
     mv vim/ vimsrc/
     cd vimsrc/
-    ./configure --prefix=~/bin/vim/ --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-cscope
+    ./configure --prefix=~/bin/vim/ --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-cscope --enable-luainterp --enable-fail-if-missing
     make
     make install
 
 `~/bin/vim/bin` is on the path, but it's worth running `which vim` to make sure you're picking it up.
+
+On OSX, you can install vim with `brew install vim --with-lua`.  To see installation options, run `brew options vim`.
 
 ### iTerm
 
