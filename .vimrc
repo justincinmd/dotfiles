@@ -27,7 +27,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 
 call vundle#end()
 
@@ -167,3 +167,6 @@ au FileType go nmap <leader>g <Plug>(go-test)
 
 " Show line numbers by default
 :set number
+
+" Start neocomplete
+let g:neocomplete#enable_at_startup = 1
