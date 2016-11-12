@@ -1,8 +1,5 @@
 function cmdtrack_preexec() {
-  echo "Executing"
-  echo "Entered $1"
-  echo "Limited text $2"
-  echo "Full text $3"
+  cmdtrack track --workdir="`pwd`" --command="$1"
 }
 
 autoload -U add-zsh-hook
