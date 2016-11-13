@@ -1,5 +1,5 @@
 function cmdtrack_preexec() {
-  cmdtrack track --workdir="`pwd`" --command="$1"
+  (nohup cmdtrack track --workdir="`pwd`" --command="$1" &) > /dev/null 2>&1
 }
 
 autoload -U add-zsh-hook
