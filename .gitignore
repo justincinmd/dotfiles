@@ -92,6 +92,7 @@ tmp
 .viminfo.tmp
 .znc/users/
 .znc/znc.pem
+.znc/configs/znc.conf
 .zsh_history*
 pbinit
 
