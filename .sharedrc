@@ -47,6 +47,12 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+# set the tmp dir if we're on a yelp box
+if [ -d /nail/tmp ]; then
+  echo 'Setting TMPDIR to /nail/tmp'
+  export TMPDIR=/nail/tmp
+fi
+
 
 # Shares the ssh-auth-socket, which is useful for accessing the agent inside
 # of screens or when using mosh
