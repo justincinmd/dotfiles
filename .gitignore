@@ -27,6 +27,9 @@
 .docker/
 .fontconfig-le64d8.cache-3
 .bundler/*
+.cmdtrack.*
+.oracle_jre_usage/
+.bash_sessions/
 
 # ssh
 .ssh/authorized_keys
@@ -92,6 +95,10 @@ tmp
 .viminfo.tmp
 .znc/users/
 .znc/znc.pem
+<<<<<<< HEAD
+=======
+.znc/configs/znc.conf
+>>>>>>> 6cb9edbd6be9de3353efa2d160aee65791bfcbdf
 .zsh_history*
 pbinit
 
