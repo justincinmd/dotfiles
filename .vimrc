@@ -112,6 +112,16 @@ function! GoTabSettings()
 endfunction
 autocmd BufNewFile,BufRead *.go call GoTabSettings()
 
+" CPP Tabs
+function! CPPTabSettings()
+    setlocal expandtab
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal softtabstop=2
+endfunction
+autocmd BufNewFile,BufRead *.cpp call CPPTabSettings()
+autocmd BufNewFile,BufRead *.h call CPPTabSettings()
+
 
 " Importly
 function! Importly()
