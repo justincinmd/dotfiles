@@ -47,6 +47,12 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+# set the tmp dir if we're on a yelp box
+if [ -d /nail/tmp ]; then
+  echo 'Setting TMPDIR to /nail/tmp'
+  export TMPDIR=/nail/tmp
+fi
+
 
 # Shares the ssh-auth-socket, which is useful for accessing the agent inside
 # of screens or when using mosh
@@ -65,6 +71,32 @@ function use-shared-ssh-auth-socket() {
   export SSH_AUTH_SOCK=$SOCK
 }
 
+function autopsql() {
+  # drop into a redshift psql shell by specifying the cluster's identifier
+  # for example
+  #
+  # $ autopsql bam-dw-v1
+  # .
+  # .
+  # datawarehouse>
+  echo 'finding connection settings'
+  CI=$1
+  CONN=$(aws redshift describe-clusters --region=us-west-2 | jq --raw-output -a ".[][] | select (.ClusterIdentifier==\"$CI\")" | jq 'del(.ClusterPublicKey)')
+  DBHOST=$(echo $CONN | jq --raw-output .Endpoint.Address)
+  PORT=$(echo $CONN | jq --raw-output .Endpoint.Port)
+  DB=$(echo $CONN | jq --raw-output .DBName)
+  if [ $DB = "null" ]
+  then
+    echo 'DBName not found, setting it as dev'
+    DB="dev"
+  fi
+  echo 'fetching creds'
+  CREDS=$(aws redshift get-cluster-credentials --db-name $DB --db-user `whoami` --cluster-identifier "${1}" --region=us-west-2)
+  IAM_USERNAME=$(echo $CREDS | jq --raw-output .DbUser)
+  PW=$(echo $CREDS | jq --raw-output .DbPassword)
+  psql "host=$DBHOST user=$IAM_USERNAME password=$PW dbname=$DB port=$PORT sslmode=verify-ca sslrootcert=/nail/home/$USER/certs/redshift-ssl-ca-cert.pem"
+}
+
 if [ ! -z "$SSH_AUTH_SOCK" ]; then
   # There is a socket
   share-ssh-auth-socket
@@ -73,7 +105,27 @@ else
   use-shared-ssh-auth-socket
 fi
 
+# Time helpers
+function unixtime() {
+  date +%s
+}
+
+function unixtime2pst() {
+  TZ="America/Los_Angeles" date -d "@$1"
+}
+
+function unixtime2utc() {
+  TZ="UTC" date -d "@$1"
+}
+
 # Setup go
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Setup gcloud
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi

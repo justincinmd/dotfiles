@@ -75,6 +75,12 @@ First, change the font to "Inconsolata for Powerline Medium", which may be built
     cd gnome-terminal-colors-solarized
     ./set_dark.sh
 
+
+### cmdtrack
+
+To install cmdtrack under osx (default build is linux-x64), run `go install github.com/jcnnghm/cmdtrack`.  Configure cmdtrack by copying the cmdtrack config from lastpass into ~/.cmdtrack.conf and `chmod 600 ~/.cmdtrack.conf`.
+
+
 ## Making Changes
 
 ### Vim
