@@ -28,6 +28,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
