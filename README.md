@@ -24,29 +24,6 @@ Edit `/etc/passwd` and set the shell to `/bin/zsh`.
 
 On the Mac, import the solarized file.  It's `Solarized Dark.terminal` in `~`.
 
-### Command-T Install
-
-To use command-t, it must be compiled.  It may be necessary to install vim using system ruby as well, if rvm is used.
-
-Mac specific precursor.  Command-t **must** be compiled with the same ruby that VIM is linked against, so it's best to
-switch to the system ruby, then install vim and compile command-t:
-
-    rvm use system
-    brew install macvim --override-system-vim
-    brew linkapps
-
-A `+ruby` should be visble in `vim --version`, or in the alternative, `:ruby 1` should run without error in vim.
-Compile command-t:
-
-    cd ~/.vim/ruby/command-t/
-    ruby extconf.rb
-    make clean
-    make
-
-On Ubuntu, install ruby development headers:
-
-    apt-get install ruby-dev
-
 ### Vim Install
 
 If `vim` wasn't compiled with `+ruby` or `+lua`, it may be ncessary to compile it from scratch.  To do that:
