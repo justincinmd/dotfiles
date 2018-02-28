@@ -38,7 +38,7 @@ And configure:
     "packages": ['git', 'silversearcher-ag', 'vim-nox', 'ack-grep', 'ruby1.9.1-dev', 'htop', 'tree'],
     "users": {
       "vagrant": {
-        "repo": 'git@github.com:jcnnghm/dotfiles.git',
+        "repo": 'git@github.com:justincinmd/dotfiles.git',
         "shell": 'zsh'
       }
     }

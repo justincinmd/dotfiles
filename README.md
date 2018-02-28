@@ -5,7 +5,7 @@ dotfiles
 
     cd ~
     git init
-    git remote add origin git@github.com:jcnnghm/dotfiles.git
+    git remote add origin git@github.com:justincinmd/dotfiles.git
     git pull
     git submodule update --init
 
@@ -78,7 +78,7 @@ First, change the font to "Inconsolata for Powerline Medium", which may be built
 
 ### cmdtrack
 
-To install cmdtrack under osx (default build is linux-x64), run `go install github.com/jcnnghm/cmdtrack`.  Configure cmdtrack by copying the cmdtrack config from lastpass into ~/.cmdtrack.conf and `chmod 600 ~/.cmdtrack.conf`.
+To install cmdtrack under osx (default build is linux-x64), run `go install github.com/justincinmd/cmdtrack`.  Configure cmdtrack by copying the cmdtrack config from lastpass into ~/.cmdtrack.conf and `chmod 600 ~/.cmdtrack.conf`.
 
 
 ## Making Changes
@@ -133,7 +133,7 @@ Then:
 
     rm -rf .git/
     git init
-    git remote add origin git@github.com:jcnnghm/dotfiles.git
+    git remote add origin git@github.com:justincinmd/dotfiles.git
     git fetch --all
     git reset --hard origin/master
     git submodule update --init
