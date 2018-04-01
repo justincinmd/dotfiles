@@ -177,6 +177,9 @@ let g:go_fmt_command = "goimports"
 autocmd BufWritePost *.go :GoMetaLinter
 au FileType go nmap <leader>g <Plug>(go-test)
 
+" Rust Setup
+let g:rustfmt_autosave = 1
+
 " Show line numbers by default
 :set number
 
