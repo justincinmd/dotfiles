@@ -29,6 +29,7 @@ Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -175,6 +176,9 @@ set wildignore+=virtualenv_run
 let g:go_fmt_command = "goimports"
 autocmd BufWritePost *.go :GoMetaLinter
 au FileType go nmap <leader>g <Plug>(go-test)
+
+" Rust Setup
+let g:rustfmt_autosave = 1
 
 " Show line numbers by default
 :set number

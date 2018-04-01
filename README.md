@@ -5,7 +5,7 @@ dotfiles
 
     cd ~
     git init
-    git remote add origin git@github.com:jcnnghm/dotfiles.git
+    git remote add origin git@github.com:justincinmd/dotfiles.git
     git pull
     git submodule update --init
 
@@ -23,29 +23,6 @@ Edit `/etc/passwd` and set the shell to `/bin/zsh`.
 ### Terminal Profile
 
 On the Mac, import the solarized file.  It's `Solarized Dark.terminal` in `~`.
-
-### Command-T Install
-
-To use command-t, it must be compiled.  It may be necessary to install vim using system ruby as well, if rvm is used.
-
-Mac specific precursor.  Command-t **must** be compiled with the same ruby that VIM is linked against, so it's best to
-switch to the system ruby, then install vim and compile command-t:
-
-    rvm use system
-    brew install macvim --override-system-vim
-    brew linkapps
-
-A `+ruby` should be visble in `vim --version`, or in the alternative, `:ruby 1` should run without error in vim.
-Compile command-t:
-
-    cd ~/.vim/ruby/command-t/
-    ruby extconf.rb
-    make clean
-    make
-
-On Ubuntu, install ruby development headers:
-
-    apt-get install ruby-dev
 
 ### Vim Install
 
@@ -78,7 +55,7 @@ First, change the font to "Inconsolata for Powerline Medium", which may be built
 
 ### cmdtrack
 
-To install cmdtrack under osx (default build is linux-x64), run `go install github.com/jcnnghm/cmdtrack`.  Configure cmdtrack by copying the cmdtrack config from lastpass into ~/.cmdtrack.conf and `chmod 600 ~/.cmdtrack.conf`.
+To install cmdtrack under osx (default build is linux-x64), run `go install github.com/justincinmd/cmdtrack`.  Configure cmdtrack by copying the cmdtrack config from lastpass into ~/.cmdtrack.conf and `chmod 600 ~/.cmdtrack.conf`.
 
 
 ## Making Changes
@@ -133,7 +110,7 @@ Then:
 
     rm -rf .git/
     git init
-    git remote add origin git@github.com:jcnnghm/dotfiles.git
+    git remote add origin git@github.com:justincinmd/dotfiles.git
     git fetch --all
     git reset --hard origin/master
     git submodule update --init

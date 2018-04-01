@@ -66,10 +66,10 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     # Install Docker
-    curl https://raw.githubusercontent.com/jcnnghm/shared_vagrant_provisioners/master/docker.sh.sig > /tmp/docker.sh.sig && gpg --verify /tmp/docker.sh.sig && gpg --decrypt /tmp/docker.sh.sig | sh
+    curl https://raw.githubusercontent.com/justincinmd/shared_vagrant_provisioners/master/docker.sh.sig > /tmp/docker.sh.sig && gpg --verify /tmp/docker.sh.sig && gpg --decrypt /tmp/docker.sh.sig | sh
 
     # Install rvm
-    curl https://raw.githubusercontent.com/jcnnghm/shared_vagrant_provisioners/master/rvm.sh.sig > /tmp/rvm.sh.sig && gpg --verify /tmp/rvm.sh.sig && gpg --decrypt /tmp/rvm.sh.sig | sh
+    curl https://raw.githubusercontent.com/justincinmd/shared_vagrant_provisioners/master/rvm.sh.sig > /tmp/rvm.sh.sig && gpg --verify /tmp/rvm.sh.sig && gpg --decrypt /tmp/rvm.sh.sig | sh
 
     # Install ruby
     zsh -c "rvm install 2.2.2"

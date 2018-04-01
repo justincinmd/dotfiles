@@ -13,6 +13,6 @@ untracked = magenta
 deleted = red
 
 [github]
-user = jcnnghm
+user = justincinmd
 [push]
 default = matching
