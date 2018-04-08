@@ -154,6 +154,7 @@ let g:session_autoload = 0
 " Set CommandT Flush
 :nnoremap <leader>f :CommandTFlush<CR>
 :nnoremap <leader>t :CtrlP<CR>
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|target)$'
 
 " Delete trailing white space
 fun! <SID>StripTrailingWhitespaces()
