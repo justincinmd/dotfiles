@@ -153,6 +153,7 @@ let g:session_autoload = 0
 
 " Set CommandT Flush
 :nnoremap <leader>f :CommandTFlush<CR>
+:nnoremap <leader>t :CtrlP<CR>
 
 " Delete trailing white space
 fun! <SID>StripTrailingWhitespaces()
