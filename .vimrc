@@ -80,6 +80,7 @@ let g:pymode_lint_ignore='E501'
 " Pymode
 " Disable rope - see https://github.com/klen/python-mode/issues/465
 let g:pymode_rope=0
+let g:pymode_folding=0
 
 " Taboo
 let g:taboo_tab_format=' %w %f%m '
@@ -168,7 +169,7 @@ autocmd BufWritePre Vagrantfile :call <SID>StripTrailingWhitespaces()
 :nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<CR>
 
 " Turn On Spellcheck
-setlocal spell
+" setlocal spell
 
 " Disable some command-t files
 set wildignore+=*.pyc
