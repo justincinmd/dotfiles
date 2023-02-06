@@ -19,15 +19,18 @@ fi
 
 # Load ssh keys
 if [[ $(uname) == 'Darwin' ]]; then
-    ssh-add -A
-    # add additional keys space delimited after id_rsa
-    for f in id_rsa
-    do
-        if [ -f ~/.ssh/$f ]; then
-            # Add files if it wasn't added by the keychain
-            command -v ssh-add && ! ssh-add -l | grep .ssh/$f && ssh-add ~/.ssh/$f
-        fi
-    done
+    if [ -z "$SSH_AUTH_SOCK" ] ; then
+      eval `ssh-agent -s`
+      ssh-add -A
+      # add additional keys space delimited after id_rsa
+      for f in id_rsa
+      do
+          if [ -f ~/.ssh/$f ]; then
+              # Add files if it wasn't added by the keychain
+              command -v ssh-add && ! ssh-add -l | grep .ssh/$f && ssh-add ~/.ssh/$f
+          fi
+      done
+    fi
 fi
 
 # Let ctrl-s work
@@ -138,3 +141,6 @@ if command -v pyenv 2>/dev/null; then
   export PATH="/home/jcnnghm/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
 fi
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
